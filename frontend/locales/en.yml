@@ -2,18 +2,21 @@ en:
   plugins:
     temp_headers:
       label: Update Temporary Header
-    temp_header:
-      _plural: Temporary Headers
-      _singular: Temporary Header
-      _frontend:
-        action:
-          save: Save Temporary Header
-          reset: Reset Temporary Header
-          edit: Update Temporary Header
-        messages:
-          updated: Temporary Header Updated
-      label: Temporary Header
   temp_header:
+    _plural: Temporary Headers
+    _singular: Temporary Header
+    _frontend:
+      actions:
+        save: Save Temporary Header
+        reset: Reset Temporary Header
+        edit: Update Temporary Header
+        reset_confirm_title: "Reset Temporary Header?"
+        reset_confirm_message: "<p>Temporary Header will be set to blank defaults and disabled.</p>"
+      messages:
+        reset: Temporary Header reset
+        reset_error: "Unable to reset Temporary Header due to an error: %{exception}"
+        updated: Temporary Header Updated
+    label: Temporary Header
     show_header: Show Header?
     notice_date: Notice Date
     notice_date_key_tooltip: |

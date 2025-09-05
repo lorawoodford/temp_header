@@ -20,9 +20,6 @@ class ArchivesSpaceService < Sinatra::Base
     update_temp_header(params)
   end
 
-    # update oai_config record
-  # same as above, but update the single record in table
-  # no matter what ID is passed in
   Endpoint.post('/temp_headers/:id')
     .description("Update the Temp Header record")
     .params(["temp_header",

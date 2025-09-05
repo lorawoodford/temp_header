@@ -1,8 +1,4 @@
-<!-- Temp Headers -->
-<%= javascript_include_tag "#{AppConfig[:frontend_proxy_prefix]}assets/subrecord.crud.js" %>
-<%= javascript_include_tag "#{AppConfig[:frontend_proxy_prefix]}assets/form.js" %>
-
-<%= setup_context(:title => I18n.t("plugins.temp_header._singular")) %>
+<%= setup_context(:title => I18n.t("temp_header._singular")) %>
 
 <%= form_for @temp_header, :as => "temp_header", :url => {:action => :update}, :html => {:class => 'form-horizontal aspace-record-form'} do |f| %>
   <%= form_context :temp_header, @temp_header do |form| %>
@@ -12,8 +8,9 @@
           :locals => {
             :record_type => 'temp_header',
             :record => @temp_header,
+            :suppress_basic_information => true,
             :plusone => nil,
-            :save_button_text => I18n.t("plugins.temp_header._frontend.action.save")
+            :save_button_text => I18n.t("temp_header._frontend.actions.save")
           }) do |sidebar| %>
 
 
@@ -23,14 +20,12 @@
         <%= render_aspace_partial :partial => "temp_headers/toolbar" %>
 
         <div class="record-pane">
-          <h2 class="mb-4"><%= I18n.t("plugins.temp_header._singular") %> <span class="label label-info badge"><%= I18n.t("plugins.temp_header._singular") %></span></h2>
-          
-          <%= render_aspace_partial :partial => "shared/form_messages", :locals => {:object => @temp_header, :form => form} %>
+          <h2 class="mb-4"><%= I18n.t("temp_header._singular") %> <span class="label label-info badge"><%= I18n.t("temp_header._singular") %></span></h2>
 
           <%= render_aspace_partial :partial => "temp_headers/form", :locals => {:form => form} %>
 
           <div class="form-actions">
-            <button type="submit" class="btn btn-primary"><%= I18n.t("plugins.temp_header._frontend.action.save") %></button>
+            <button type="submit" class="btn btn-primary"><%= I18n.t("temp_header._frontend.actions.save") %></button>
             <%= link_to I18n.t("actions.cancel"), :back, :class => "btn btn-cancel btn-default" %>
           </div>
 
