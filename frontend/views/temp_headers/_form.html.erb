@@ -4,9 +4,9 @@
   <fieldset>
     <section id="basic_information" class="mb-4">
       <%= form.label_and_boolean "show_header" %>
-      <%= form.label_and_date "notice_date" %>
-      <%= form.label_and_textfield "maintenance_start" %>
-      <%= form.label_and_textfield "maintenance_end" %>
+      <%= form.label_and_date "notice_date", {:required => :conditionally} %>
+      <%= form.label_and_textfield "maintenance_start", {:field_opts => {:placeholder => t('temp_header.timestamp_placeholder')}, :required => :conditionally} %>
+      <%= form.label_and_textfield "maintenance_end", {:field_opts => {:placeholder => t('temp_header.timestamp_placeholder')}, :required => :conditionally} %>
       <%= form.label_and_textarea "maintenance_message" %>
     </section>
   </fieldset>

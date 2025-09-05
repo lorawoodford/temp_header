@@ -30,3 +30,6 @@ en:
     maintenance_message: Maintenance Message
     maintenance_message_key_tooltip: |
       <p></p>
+    timestamp_placeholder: Enter a UTC timestamp, such as 2025-09-05 13:56:17
+  validation_errors:
+    all_dates_required: Notice Date, Maintenance Start Time, and Maintenance End Time are all required when Show Header is true
