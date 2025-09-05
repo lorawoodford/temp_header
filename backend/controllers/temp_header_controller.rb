@@ -1,6 +1,6 @@
 class ArchivesSpaceService < Sinatra::Base
 
-  Endpoint.get('/temp_headers')
+  Endpoint.get('/plugins/temp_headers')
     .description("Get the Temp Header record")
     .permissions([])
     .returns([200, "(:temp_header)"]) \
@@ -8,19 +8,7 @@ class ArchivesSpaceService < Sinatra::Base
     handle_unlimited_listing(TempHeader)
   end
 
-  Endpoint.post('/temp_headers')
-    .description("Update the Temp Header record")
-    .params(["temp_header",
-             JSONModel(:temp_header),
-             "The updated record",
-             :body => true])
-    .permissions([:administer_system])
-    .returns([200, :updated]) \
-  do
-    update_temp_header(params)
-  end
-
-  Endpoint.post('/temp_headers/:id')
+  Endpoint.post('/plugins/temp_headers')
     .description("Update the Temp Header record")
     .params(["temp_header",
              JSONModel(:temp_header),

@@ -2,7 +2,7 @@
   :schema => {
     "$schema" => "http://www.archivesspace.org/archivesspace.json",
     "type" => "object",
-    "uri" => "/temp_headers",
+    "uri" => "/plugins/temp_headers",
 
     "properties" => {
       "show_header" => {"type" => "boolean", "default" => false},
