@@ -1,0 +1,29 @@
+en:
+  plugins:
+    temp_headers:
+      label: Update Temporary Header
+    temp_header:
+      _plural: Temporary Headers
+      _singular: Temporary Header
+      _frontend:
+        action:
+          save: Save Temporary Header
+          reset: Reset Temporary Header
+          edit: Update Temporary Header
+        messages:
+          updated: Temporary Header Updated
+      label: Temporary Header
+  temp_header:
+    show_header: Show Header?
+    notice_date: Notice Date
+    notice_date_key_tooltip: |
+      <p></p>
+    maintenance_start: Maintenance Start Time
+    maintenance_start_key_tooltip: |
+      <p>A Timestamp</p>
+    maintenance_end: Maintenance End Time
+    maintenance_end_key_tooltip: |
+      <p></p>
+    maintenance_message: Maintenance Message
+    maintenance_message_key_tooltip: |
+      <p></p>

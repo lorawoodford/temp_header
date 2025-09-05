@@ -1,0 +1,35 @@
+div#toggle-temp-header {
+    line-height: 1rem;
+    opacity: 0.95;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0px;
+    z-index: 5000;
+}
+
+div#temp-header {
+    background-color: #f2dede;
+    color: #a94442;
+}
+
+div#temp-header a {
+    color: #a94442;
+}
+
+div#temp-header > div.alert {
+    margin-bottom: 0;
+}
+
+div#unhide-alert {
+    float: inline-end;
+}
+
+div#unhide-alert > button {
+    --base-color: #f2dede;
+    background-color: var(--base-color);
+    border-color: color-mix(in srgb, var(--base-color) 60%, white);
+    border-radius: 4px;
+    color: #a94442;
+    font-weight: bold;
+    padding: 5px;
+}

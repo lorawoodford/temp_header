@@ -1,0 +1,13 @@
+<% define_template "temp_header", jsonmodel_definition(:temp_header) do |form| %>
+  <fieldset>
+    <section id="temp-header">
+      <%= form.label_and_boolean "show_header" %>
+      <%= form.label_and_date "notice_date" %>
+      <%= form.label_and_textfield "maintenance_start" %>
+      <%= form.label_and_textfield "maintenance_end" %>
+      <%= form.label_and_textarea "maintenance_message" %>
+    </section>
+  </fieldset>
+<% end %>
+
+<% form.emit_template("temp_header") %>

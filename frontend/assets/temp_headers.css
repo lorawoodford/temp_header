@@ -1,0 +1,166 @@
+/* data */
+#local-contexts-data-holder {
+  display: none;
+  margin: 1em;
+}
+
+#local-contexts-data-holder.lc-data-shown {
+  display: block;
+}
+
+#local-contexts-data-holder > div {
+  display: table;
+  clear: both;
+}
+
+#local-contexts-data-holder > div:first-of-type {
+  margin-top: 0;
+}
+
+#local-contexts-data-holder p {
+  display: table;
+}
+
+img.local-contexts-image {
+  display: table-cell;
+  max-width: 5em;
+  margin: 0 1em 1em 0;
+}
+
+span.local-contexts-audio {
+  display: block;
+}
+
+span.local-contexts-description {
+  display: table-cell;
+  vertical-align: top;
+}
+span.local-contexts-placed-by {
+  display: block;
+}
+
+span.local-contexts-placed-by-label {
+  font-weight: bold;
+}
+
+span.local-contexts-placed-by-label::after {
+  content: ":";
+}
+
+/* translations */
+.local-contexts-translation-wrapper {
+  display: none;
+  margin-top: 0.5em;
+}
+
+.local-contexts-translation-wrapper.shown {
+  display: block;
+}
+
+.local-contexts-translation-toggle {
+  display: table-cell;
+  width: auto;
+  cursor: pointer;
+}
+
+.local-contexts-translation-title {
+  font-weight: bold
+}
+
+.local-contexts-translation-translation {
+  display: block;
+  margin-bottom: 1em;
+}
+
+.local-contexts-translation-translation:last-of-type {
+  margin-bottom: 0;
+}
+
+/* general layout */
+.lc-project-data-label,
+.lc-project-fetch-error {
+  margin-top: 3em;
+}
+
+.disallow-project-api-keys {
+  display: none;
+}
+
+/* json */
+.lc-json {
+  display: none;
+  white-space: pre-wrap;
+}
+
+.lc-json.shown {
+  display: block;
+}
+
+/* fetch button */
+button.fetching a::after,
+a.fetching::after {
+  display: inline-block;
+  content: "\e031";
+  font-family: "Glyphicons Halflings";
+  margin-left: 0.5em;
+  animation: spin 1s infinite linear;
+}
+
+/* manage cache button */
+.local-contexts-manage-cache-btn {
+  margin-left: 0.5rem;
+}
+
+.local-contexts-manage-cache-btn a {
+  color: #000 !important;
+}
+
+/* reset cache */
+
+.reset-local-contexts-cache-list-item {
+  display: table;
+  width: 100%;
+  padding: 1rem;
+  border-bottom: 1px solid #666;
+}
+
+.reset-local-contexts-cache-list-item > * {
+  display: table-cell;
+  min-width: 20rem;
+  margin: 1rem;
+}
+
+.local-contexts-pid {
+  width: 75%;
+}
+
+.reset-local-contexts-cache-list-item a {
+  color: #fff;
+}
+
+.local-contexts-reset-cache-success {
+  display: block;
+  color: #00693e;
+}
+
+.local-contexts-reset-cache-success::before {
+  margin-right: 0.5rem;
+  content: "\2713";
+}
+
+.local-contexts-reset-cache-error {
+  display: block;
+  color: red;
+}
+
+.local-contexts-reset-cache-error::before {
+  margin-right: 0.5rem;
+  content: "\274c";
+  color: red;
+}
+
+/* animation */
+@keyframes spin {
+  from { transform: scale(1) rotate(0deg); }
+  to { transform: scale(1) rotate(360deg); }
+}

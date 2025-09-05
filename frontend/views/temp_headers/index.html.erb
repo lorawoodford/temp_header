@@ -1,0 +1,41 @@
+<!-- Temp Headers -->
+<%= javascript_include_tag "#{AppConfig[:frontend_proxy_prefix]}assets/subrecord.crud.js" %>
+<%= javascript_include_tag "#{AppConfig[:frontend_proxy_prefix]}assets/form.js" %>
+
+<%= setup_context(:title => I18n.t("plugins.temp_header._singular")) %>
+
+<%= form_for @temp_header, :as => "temp_header", :url => {:action => :update}, :html => {:class => 'form-horizontal aspace-record-form'} do |f| %>
+  <%= readonly_context :temp_header, @temp_header do |form| %>
+    <div class="d-flex">
+      <div class="col-md-3">
+        <%= render(:layout => '/shared/sidebar',
+          :locals => {
+            :record_type => 'temp_header',
+            :record => @temp_header,
+            :plusone => nil,
+            :save_button_text => I18n.t("plugins.temp_header._frontend.action.save")
+          }) do |sidebar| %>
+
+
+        <% end %>
+      </div>
+      <div class="col-md-9">
+        <%= render_aspace_partial :partial => "temp_headers/toolbar" %>
+
+        <div class="record-pane">
+          <h2 class="mb-4"><%= I18n.t("plugins.temp_header._singular") %> <span class="label label-info badge"><%= I18n.t("plugins.temp_header._singular") %></span></h2>
+          
+          <%= render_aspace_partial :partial => "shared/form_messages", :locals => {:object => @temp_header, :form => form} %>
+
+          <%= render_aspace_partial :partial => "temp_headers/form", :locals => {:form => form} %>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary"><%= I18n.t("plugins.temp_header._frontend.action.save") %></button>
+            <%= link_to I18n.t("actions.cancel"), :back, :class => "btn btn-cancel btn-default" %>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>
