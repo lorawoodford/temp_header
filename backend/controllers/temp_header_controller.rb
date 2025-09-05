@@ -14,7 +14,7 @@ class ArchivesSpaceService < Sinatra::Base
              JSONModel(:temp_header),
              "The updated record",
              :body => true])
-    .permissions([])
+    .permissions([:administer_system])
     .returns([200, :updated]) \
   do
     update_temp_header(params)
@@ -29,7 +29,7 @@ class ArchivesSpaceService < Sinatra::Base
              JSONModel(:temp_header),
              "The updated record",
              :body => true])
-    .permissions([])
+    .permissions([:administer_system])
     .returns([200, :updated]) \
   do
     update_temp_header(params)
@@ -48,53 +48,4 @@ class ArchivesSpaceService < Sinatra::Base
 
     updated_response(th, json)
   end
-
-  # Endpoint.post('/temp_headers/:id')
-  #   .description("Update a Temp Header")
-  #   .params(["id", :id],
-  #           ["temp_header", JSONModel(:temp_header), "The updated record", :body => true])
-  #   .permissions([])
-  #   .returns([200, :updated]) \
-  # do
-  #   handle_update(TempHeader, params[:id], params[:temp_header])
-  # end
-
-  # Endpoint.post('/temp_headers')
-  #   .description("Create an Temp Header")
-  #   .params(["temp_header", JSONModel(:temp_header), "The record to create", :body => true])
-  #   .permissions([])
-  #   .returns([200, :created]) \
-  # do
-  #   handle_create(TempHeader, params[:temp_header])
-  # end
-
-  # Endpoint.get('/temp_headers')
-  #   .description("Get a list of Temp Headers")
-  #   .params()
-  #   .permissions([])
-  #   .returns([200, "[(:temp_header)]"]) \
-  # do
-  #   handle_unlimited_listing(Enumeration)
-  # end
-
-  # Endpoint.get('/temp_headers/:id')
-  #   .description("Get a Temp Header by ID")
-  #   .params(["id", :id],
-  #           ["resolve", :resolve])
-  #   .permissions([])
-  #   .returns([200, "(:temp_header)"]) \
-  # do
-  #   json = TempHeader.to_jsonmodel(params[:id])
-  #   json_response(resolve_references(json, params[:resolve]))
-  # end
-
-  # Endpoint.delete('/temp_headers/:id')
-  #   .description("Delete a Temp Header")
-  #   .params(["id", :id])
-  #   .permissions([])
-  #   .returns([200, :deleted]) \
-  # do
-  #   handle_delete(TempHeader, params[:id])
-  # end
-
 end
