@@ -1,7 +1,18 @@
 <%= stylesheet_link_tag "#{@base_url}/assets/css/si_header.css" %>
 <%= javascript_include_tag "#{@base_url}/assets/javascripts/closed_state.js?v=1" %>
 
-<% temp_header = JSONModel(:temp_header).all.first %>
+<% temp_header = JSONModel(:temp_header).all.first
+   notice_date = TempHeaderHelper::short_date(temp_header['notice_date'])
+   start_date = TempHeaderHelper::long_date(temp_header['maintenance_start'])
+   start_time = TempHeaderHelper::long_time(temp_header['maintenance_start'])
+   end_date = TempHeaderHelper::long_date(temp_header['maintenance_end'])
+   if start_date == end_date
+     end_stmt = TempHeaderHelper::long_time(temp_header['maintenance_end'])
+   else
+     end_stmt = "#{end_date} at #{TempHeaderHelper::long_time(temp_header['maintenance_end'])}"
+   end
+%>
+
 <div id="toggle-temp-header" <% unless temp_header['show_header'] %> style="display: none;" <% end %>>
   <div id="unhide-alert" style="display: none;" class="rounded-bottom shadow-sm">
     <button href="javascript:void(0)" id="showHeader" label="Show alert">
@@ -16,9 +27,8 @@
         </span>
       </a>
 
-      <p><b><%= TempHeaderHelper::short_date(temp_header['notice_date']) %></b>: ArchivesSpace will be undergoing planned maintenance on 
-      <%= TempHeaderHelper::long_date(temp_header['maintenance_start']) %> from <%= TempHeaderHelper::long_time(temp_header['maintenance_start']) %> until
-      <%= TempHeaderHelper::long_time(temp_header['maintenance_end']) %>.</p>
+      <p><b><%= notice_date %></b>: ArchivesSpace will be undergoing planned maintenance on 
+      <%=  start_date %> from <%=  start_time %> until <%= end_stmt %>.</p>
 
       <p><%= temp_header['maintenance_message'] %></p>
     </div>

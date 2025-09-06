@@ -24,8 +24,8 @@ module TempHeaderHelper
 
   def self.long_time(time)
     begin
-      parsed = DateTime.strptime(time, '%Y-%m-%d %H:%M:%S')
-      parsed.strftime("%l:%M%p EST")
+      parsed = DateTime.strptime(time, '%Y-%m-%d %H:%M:%S').getlocal
+      parsed.strftime("%l:%M%p %Z")
     rescue
       ""
     end

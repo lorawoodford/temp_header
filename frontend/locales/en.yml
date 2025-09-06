@@ -20,16 +20,30 @@ en:
     show_header: Show Header?
     notice_date: Notice Date
     notice_date_key_tooltip: |
-      <p></p>
+      <p>The date the notice was created.</p>
+    timestamp_placeholder: "ex: 2025-09-01 6:00am EST"
     maintenance_start: Maintenance Start Time
-    maintenance_start_key_tooltip: |
-      <p>A Timestamp</p>
+    maintenance_start_tooltip: |
+      <p>A valid 12-hour DateTime statement, including local timezone.  Such as:</p>
+      <p>Note: The time entered will be converted to UTC on record save.</p>
+      <p>Examples:</p>
+      <ul>
+        <li>2025-09-01 6:00am EDT</li>
+        <li>2025-9-1 06:00:00AM pst</li>
+        <li>2025-09-01 8:00 pm CST</li>
+      </ul>
     maintenance_end: Maintenance End Time
-    maintenance_end_key_tooltip: |
-      <p></p>
+    maintenance_end_tooltip: |
+      <p>A valid 12-hour DateTime statement, including local timezone.  Such as:</p>
+      <p>Note: The time entered will be converted to UTC on record save.</p>
+      <p>Examples:</p>
+      <ul>
+        <li>2025-09-01 6:00am EDT</li>
+        <li>2025-9-1 06:00:00AM pst</li>
+        <li>2025-09-01 8:00 pm CST</li>
+      </ul>
     maintenance_message: Maintenance Message
-    maintenance_message_key_tooltip: |
-      <p></p>
-    timestamp_placeholder: Enter a UTC timestamp, such as 2025-09-05 13:56:17
+    maintenance_message_tooltip: |
+      <p>(Optional) Message to convey what will be occurring during this downtime.</p>
   validation_errors:
     all_dates_required: Notice Date, Maintenance Start Time, and Maintenance End Time are all required when Show Header is true

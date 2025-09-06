@@ -1,3 +1,5 @@
+require 'time'
+
 class ArchivesSpaceService < Sinatra::Base
 
   Endpoint.get('/plugins/temp_headers')
@@ -24,11 +26,12 @@ class ArchivesSpaceService < Sinatra::Base
     th = TempHeader.first
     json = params[:temp_header]
 
-    th.update(:show_header     => json["show_header"],
-              :notice_date         => json["notice_date"],
-              :maintenance_start       => json["maintenance_start"],
-              :maintenance_end          => json["maintenance_end"],
-              :maintenance_message       => json["maintenance_message"]
+    th.update(show_header: json["show_header"],
+              notice_date: json["notice_date"],
+              maintenance_start: json["maintenance_start"],
+              maintenance_end: json["maintenance_end"],
+              maintenance_message: json["maintenance_message"],
+              user_mtime: Time.current
               )
 
     updated_response(th, json)
