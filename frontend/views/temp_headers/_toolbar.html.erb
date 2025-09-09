@@ -1,27 +1,27 @@
 <% if user_can?('administer_system') %>
-  <div class="record-toolbar d-flex align-items-center">
-    <div class="btn-group">
-      <div class="save-changes">
-        <button type="submit" class="btn btn-primary btn-sm"><%= I18n.t("actions.save_prefix") %></button>
+  <div class='record-toolbar d-flex align-items-center'>
+    <div class='btn-group'>
+      <div class='save-changes'>
+        <button type='submit' class='btn btn-primary btn-sm'><%= I18n.t('actions.save_prefix') %></button>
       </div>
     </div>
 
-    <div class="btn-group ml-auto">
-      <div class="btn-inline-form">
-        <%= button_confirm_action t("temp_header._frontend.actions.reset"),
+    <div class='btn-group ml-auto'>
+      <div class='btn-inline-form'>
+        <%= button_confirm_action t('temp_header._frontend.actions.reset'),
                                   url_for(:action => :reset),
                                   {
-                                    :class => "btn btn-danger  btn-sm reset-header",
-                                    :"data-title" => t("temp_header._frontend.actions.reset_confirm_title"),
-                                    :"data-message" => t("temp_header._frontend.actions.reset_confirm_message"),
-                                    :"data-confirm-btn-label" => "#{t("temp_header._frontend.actions.reset")}",
-                                    :"data-confirm-btn-class" => "btn-danger"
+                                    :class => 'btn btn-danger  btn-sm reset-header',
+                                    :'data-title' => t('temp_header._frontend.actions.reset_confirm_title'),
+                                    :'data-message' => t('temp_header._frontend.actions.reset_confirm_message'),
+                                    :'data-confirm-btn-label' => t('temp_header._frontend.actions.reset'),
+                                    :'data-confirm-btn-class' => 'btn-danger'
                                   }
         %>
       </div>
     </div>
   
-    <div class="clearfix"></div>
+    <div class='clearfix'></div>
   </div>
 
 <% end %>

@@ -10,8 +10,8 @@ en:
         save: Save Temporary Header
         reset: Reset Temporary Header
         edit: Update Temporary Header
-        reset_confirm_title: "Reset Temporary Header?"
-        reset_confirm_message: "<p>Temporary Header will be set to blank defaults and disabled.</p>"
+        reset_confirm_title: Reset Temporary Header?
+        reset_confirm_message: <p>Temporary Header will be set to blank defaults and disabled.</p>
       messages:
         reset: Temporary Header reset
         reset_error: "Unable to reset Temporary Header due to an error: %{exception}"
@@ -25,23 +25,23 @@ en:
     maintenance_start: Maintenance Start Time
     maintenance_start_tooltip: |
       <p>A valid 12-hour DateTime statement, including local timezone.  Such as:</p>
-      <p>Note: The time entered will be converted to UTC on record save.</p>
       <p>Examples:</p>
       <ul>
         <li>2025-09-01 6:00am EDT</li>
         <li>2025-9-1 06:00:00AM pst</li>
         <li>2025-09-01 8:00 pm CST</li>
       </ul>
+      <p>Note: The time entered will be converted to UTC on record save.</p>
     maintenance_end: Maintenance End Time
     maintenance_end_tooltip: |
       <p>A valid 12-hour DateTime statement, including local timezone.  Such as:</p>
-      <p>Note: The time entered will be converted to UTC on record save.</p>
       <p>Examples:</p>
       <ul>
         <li>2025-09-01 6:00am EDT</li>
         <li>2025-9-1 06:00:00AM pst</li>
         <li>2025-09-01 8:00 pm CST</li>
       </ul>
+      <p>Note: The time entered will be converted to UTC on record save.</p>
     maintenance_message: Maintenance Message
     maintenance_message_tooltip: |
       <p>(Optional) Message to convey what will be occurring during this downtime.</p>

@@ -1,15 +1,15 @@
-<%= render_aspace_partial :partial => "shared/form_messages", :locals => {:object => @temp_header, :form => form} %>
+<%= render_aspace_partial :partial => 'shared/form_messages', :locals => {:object => @temp_header, :form => form} %>
 
-<% define_template "temp_header", jsonmodel_definition(:temp_header) do |form| %>
+<% define_template 'temp_header', jsonmodel_definition(:temp_header) do |form| %>
   <fieldset>
-    <section id="basic_information" class="mb-4">
-      <%= form.label_and_boolean "show_header" %>
-      <%= form.label_and_date "notice_date", {:required => :conditionally} %>
-      <%= form.label_and_textfield "maintenance_start", {:field_opts => {:placeholder => t('temp_header.timestamp_placeholder')}, :required => :conditionally} %>
-      <%= form.label_and_textfield "maintenance_end", {:field_opts => {:placeholder => t('temp_header.timestamp_placeholder')}, :required => :conditionally} %>
-      <%= form.label_and_textarea "maintenance_message" %>
+    <section id='basic_information' class='mb-4'>
+      <%= form.label_and_boolean 'show_header' %>
+      <%= form.label_and_date 'notice_date', {:required => :conditionally} %>
+      <%= form.label_and_textfield 'maintenance_start', {:field_opts => {:placeholder => t('temp_header.timestamp_placeholder')}, :required => :conditionally} %>
+      <%= form.label_and_textfield 'maintenance_end', {:field_opts => {:placeholder => t('temp_header.timestamp_placeholder')}, :required => :conditionally} %>
+      <%= form.label_and_textarea 'maintenance_message' %>
     </section>
   </fieldset>
 <% end %>
 
-<% form.emit_template("temp_header") %>
+<% form.emit_template('temp_header') %>

@@ -3,18 +3,18 @@ require 'time'
 class ArchivesSpaceService < Sinatra::Base
 
   Endpoint.get('/plugins/temp_headers')
-    .description("Get the Temp Header record")
+    .description('Get the Temp Header record')
     .permissions([])
-    .returns([200, "(:temp_header)"]) \
+    .returns([200, '(:temp_header)']) \
   do
     handle_unlimited_listing(TempHeader)
   end
 
   Endpoint.post('/plugins/temp_headers')
-    .description("Update the Temp Header record")
-    .params(["temp_header",
+    .description('Update the Temp Header record')
+    .params(['temp_header',
              JSONModel(:temp_header),
-             "The updated record",
+             'The updated record',
              :body => true])
     .permissions([:administer_system])
     .returns([200, :updated]) \
@@ -26,11 +26,11 @@ class ArchivesSpaceService < Sinatra::Base
     th = TempHeader.first
     json = params[:temp_header]
 
-    th.update(show_header: json["show_header"],
-              notice_date: json["notice_date"],
-              maintenance_start: json["maintenance_start"],
-              maintenance_end: json["maintenance_end"],
-              maintenance_message: json["maintenance_message"],
+    th.update(show_header: json['show_header'],
+              notice_date: json['notice_date'],
+              maintenance_start: json['maintenance_start'],
+              maintenance_end: json['maintenance_end'],
+              maintenance_message: json['maintenance_message'],
               user_mtime: Time.current
               )
 

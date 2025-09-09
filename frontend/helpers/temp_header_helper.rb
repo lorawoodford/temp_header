@@ -9,25 +9,25 @@ module TempHeaderHelper
       parsed = Date.strptime(date, '%Y-%m-%d')
       parsed.strftime('%-m-%-d-%Y')
     rescue
-      ""
+      ''
     end
   end
 
   def self.long_date(date)
     begin
       parsed = Date.strptime(date, '%Y-%m-%d %H:%M:%S')
-      parsed.strftime("%A, %B %e")
+      parsed.strftime('%A, %B %e')
     rescue
-      ""
+      ''
     end
   end
 
   def self.long_time(time)
     begin
       parsed = DateTime.strptime(time, '%Y-%m-%d %H:%M:%S').getlocal
-      parsed.strftime("%l:%M%p %Z")
+      parsed.strftime('%l:%M%p %Z')
     rescue
-      ""
+      ''
     end
   end
 end

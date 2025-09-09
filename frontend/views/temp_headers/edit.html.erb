@@ -1,32 +1,32 @@
-<%= setup_context(:title => I18n.t("temp_header._singular")) %>
+<%= setup_context(:title => I18n.t('temp_header._singular')) %>
 
-<%= form_for @temp_header, :as => "temp_header", :url => {:action => :update}, :html => {:class => 'form-horizontal aspace-record-form'} do |f| %>
+<%= form_for @temp_header, :as => 'temp_header', :url => {:action => :update}, :html => {:class => 'form-horizontal aspace-record-form'} do |f| %>
   <%= form_context :temp_header, @temp_header do |form| %>
-    <div class="d-flex">
-      <div class="col-md-3">
+    <div class='d-flex'>
+      <div class='col-md-3'>
         <%= render(:layout => '/shared/sidebar',
           :locals => {
             :record_type => 'temp_header',
             :record => @temp_header,
             :suppress_basic_information => true,
             :plusone => nil,
-            :save_button_text => I18n.t("temp_header._frontend.actions.save")
+            :save_button_text => t('temp_header._frontend.actions.save')
           }) do |sidebar| %>
 
 
             <% end %>
       </div>
-      <div class="col-md-9">
-        <%= render_aspace_partial :partial => "temp_headers/toolbar" %>
+      <div class='col-md-9'>
+        <%= render_aspace_partial :partial => 'temp_headers/toolbar' %>
 
-        <div class="record-pane">
-          <h2 class="mb-4"><%= I18n.t("temp_header._singular") %> <span class="label label-info badge"><%= I18n.t("temp_header._singular") %></span></h2>
+        <div class='record-pane'>
+          <h2 class='mb-4'><%= I18n.t('temp_header._singular') %> <span class='label label-info badge'><%= I18n.t('temp_header._singular') %></span></h2>
 
-          <%= render_aspace_partial :partial => "temp_headers/form", :locals => {:form => form} %>
+          <%= render_aspace_partial :partial => 'temp_headers/form', :locals => {:form => form} %>
 
-          <div class="form-actions">
-            <button type="submit" class="btn btn-primary"><%= I18n.t("temp_header._frontend.actions.save") %></button>
-            <%= link_to I18n.t("actions.cancel"), :back, :class => "btn btn-cancel btn-default" %>
+          <div class='form-actions'>
+            <button type='submit' class='btn btn-primary'><%= I18n.t('temp_header._frontend.actions.save') %></button>
+            <%= link_to I18n.t('actions.cancel'), :back, :class => 'btn btn-cancel btn-default' %>
           </div>
 
         </div>

@@ -1,6 +1,6 @@
 Sequel.migration do
   up do
-    $stderr.puts("Adding values Temp Header table")
+    $stderr.puts('Adding initial values to Temp Header table')
 
     self[:temp_header].insert(show_header: 0,
                               notice_date: nil,

@@ -14,7 +14,6 @@ class TempHeader < Sequel::Model(:temp_header)
     record_count = TempHeader.all.count
 
     unless record_count == 0
-      # if we have an existing record, we'd better be updating that one record
       first_record = TempHeader.first
 
       if self.id.nil? || first_record.id != self.id
@@ -40,17 +39,17 @@ class TempHeader < Sequel::Model(:temp_header)
       begin
         start_date = DateTime.strptime(self.maintenance_start.to_s, '%Y-%m-%d %H:%M:%S').getlocal
       rescue ArgumentError => e
-        errors.add(:maintenance_start, "not a valid date")
+        errors.add(:maintenance_start, 'not a valid date')
       end
 
       begin
         end_date = DateTime.strptime(self.maintenance_end.to_s, '%Y-%m-%d %H:%M:%S').getlocal
       rescue ArgumentError => e
-        errors.add(:maintenance_end, "not a valid date")
+        errors.add(:maintenance_end, 'not a valid date')
       end
 
       if start_date && end_date && end_date < start_date
-        errors.add(:maintenance_end, "must not be before begin")
+        errors.add(:maintenance_end, 'must not be before begin')
       end
     end
   end

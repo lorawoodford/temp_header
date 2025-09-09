@@ -1,5 +1,5 @@
 class TempHeadersController < ApplicationController
-  set_access_control "administer_system" => [:index, :edit, :update, :reset]
+  set_access_control 'administer_system' => [:index, :edit, :update, :reset]
 
   def index
     redirect_to ({ controller: :temp_headers, action: :edit })
@@ -17,10 +17,10 @@ class TempHeadersController < ApplicationController
                 :replace => true,
                 :obj => @temp_header,
                 :on_invalid => ->() {
-                  return render action: "edit"
+                  return render action: 'edit'
                 },
                 :on_valid => ->(id) {
-                  flash[:success] = I18n.t("temp_header._frontend.messages.updated")
+                  flash[:success] = I18n.t('temp_header._frontend.messages.updated')
                   redirect_to :controller => :temp_headers, :action => :edit
                 })
   end
@@ -37,10 +37,10 @@ class TempHeadersController < ApplicationController
       })
       temp_header.save
 
-      flash[:success] = t("temp_header._frontend.messages.reset")
+      flash[:success] = t('temp_header._frontend.messages.reset')
       redirect_to ({ controller: :temp_headers, action: :edit })
     rescue Exception => e
-      flash[:error] = t("temp_header._frontend.messages.reset_error", :exception => e)
+      flash[:error] = t('temp_header._frontend.messages.reset_error', :exception => e)
       redirect_to ({ controller: :temp_headers, action: :edit })
       return
     end
