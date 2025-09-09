@@ -17,7 +17,7 @@ class TempHeader < Sequel::Model(:temp_header)
       first_record = TempHeader.first
 
       if self.id.nil? || first_record.id != self.id
-        errors.add(:base, 'Cannot have more than one record in temp_header table.')
+        errors.add(:temp_header, 'Cannot have more than one record in temp_header table.')
       end
     end
   end
