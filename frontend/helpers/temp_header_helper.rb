@@ -1,3 +1,5 @@
+require 'tzinfo'
+
 module TempHeaderHelper
 
   def self.get_header
@@ -24,8 +26,10 @@ module TempHeaderHelper
 
   def self.long_time(time)
     begin
-      parsed = DateTime.strptime(time, '%Y-%m-%d %H:%M:%S').getlocal
-      parsed.strftime('%l:%M%p %Z')
+      timezone = TZInfo::Timezone.get('America/New_York')
+      parsed = Time.strptime(time, '%Y-%m-%d %H:%M:%S')
+      parsed_time_tz = timezone.utc_to_local(parsed)
+      parsed_time_tz.strftime('%l:%M%p %Z')
     rescue
       ''
     end

@@ -37,13 +37,13 @@ class TempHeader < Sequel::Model(:temp_header)
   def validate_date
     if self.maintenance_start && self.maintenance_end
       begin
-        start_date = DateTime.strptime(self.maintenance_start.to_s, '%Y-%m-%d %H:%M:%S').getlocal
+        start_date = DateTime.strptime(self.maintenance_start.to_s, '%Y-%m-%d %H:%M:%S')
       rescue ArgumentError => e
         errors.add(:maintenance_start, 'not a valid date')
       end
 
       begin
-        end_date = DateTime.strptime(self.maintenance_end.to_s, '%Y-%m-%d %H:%M:%S').getlocal
+        end_date = DateTime.strptime(self.maintenance_end.to_s, '%Y-%m-%d %H:%M:%S')
       rescue ArgumentError => e
         errors.add(:maintenance_end, 'not a valid date')
       end
