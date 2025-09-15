@@ -20,6 +20,8 @@ describe 'Temp Headers', js: true do
 
     it 'lets you access the header with default settings' do
       click_button('Repository settings')
+      expect(page).to have_button('Plug-ins')
+
       find_button('Plug-ins').hover
       click_on('Update Temporary Header')
 
@@ -125,9 +127,8 @@ describe 'Temp Headers', js: true do
 
     it 'does not show a link to header settings' do
       click_button('Repository settings')
-      find_button('Plug-ins').hover
 
-      expect(page).not_to have_text 'Update Temporary Header'
+      expect(page).not_to have_button('Plug-ins')
     end
 
     it 'does not let you access the header settings' do
