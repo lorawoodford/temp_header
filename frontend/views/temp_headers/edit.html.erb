@@ -1,6 +1,6 @@
 <%= setup_context(:title => I18n.t('temp_header._singular')) %>
 
-<%= form_for @temp_header, :as => 'temp_header', :url => {:action => :update}, :html => {:class => 'form-horizontal aspace-record-form'} do |f| %>
+<%= form_for @temp_header, :as => 'temp_header_form', :url => {:action => :update}, :html => {:class => 'form-horizontal aspace-record-form'} do |f| %>
   <%= form_context :temp_header, @temp_header do |form| %>
     <div class='d-flex'>
       <div class='col-md-3'>
