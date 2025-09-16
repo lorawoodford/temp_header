@@ -10,3 +10,7 @@ by ArchivesSpace users with `administer_system` permissions from the
 
 ## Active Temporary Header
 <img width="1502" height="234" alt="Screenshot 2025-09-09 at 9 21 04 AM" src="https://github.com/user-attachments/assets/5158574b-4796-4c58-9a30-7c7e859102dd" />
+
+## API Documentation
+
+API documentation is maintained at: https://smithsonian.github.io/caas_temp_header/
