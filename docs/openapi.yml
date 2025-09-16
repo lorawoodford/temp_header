@@ -1,0 +1,126 @@
+openapi: 3.1.0
+info:
+  title: Temp Header Plugin API
+  version: '0.1'
+
+servers:
+  - url: http://localhost:4567
+    description: Locally running development instance of ArchivesSpace
+  - url: http://localhost:8089
+    description: Locally running build of ArchivesSpace
+
+paths:
+  /plugins/temp_headers:
+    get:
+      operationId: getTempHeaders
+      summary: Get the Temp Header record
+      description: _Note_ Though a list, this list should only ever contain one item
+      security:
+        - auth: []
+      responses:
+        '200':
+          description: An array of JSON objects
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TempHeader'
+        '400':
+          description: Bad request
+    post:
+      operationId: postTempHeaders
+      summary: Update the Temp Header record
+      requestBody:
+        required: true
+        content:
+          application/json:
+              schema:
+                $ref: '#/components/schemas/TempHeader'
+      security:
+        - auth: ['administer_system']
+      responses:
+        '200':
+          description: Updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Updated'
+        '400':
+          description: Bad request
+
+components:
+  schemas:
+    TempHeader:
+      properties:
+        lock_version:
+          type: integer
+          format: int64
+          example: 0
+        show_header:
+          type: boolean
+          example: false
+        notice_date:
+          type: string
+          format: date
+          example: 2025-09-01
+        maintenance_start:
+          type: string
+          format: date-time
+          example: 2025-09-10 06:00:00UTC
+        maintenance_end:
+          type: string
+          format: date-time
+          example: 2025-09-10 08:00:00UTC
+        maintenance_message:
+          type: string
+          example: A maintenance message
+        created_by:
+          type: string
+          example: admin
+        last_modified_by:
+          type: string
+          example: admin
+        create_time:
+          type: string
+          format: date-time
+          example: '2025-04-03T16:44:34Z'
+        system_mtime:
+          type: string
+          format: date-time
+          example: '2025-04-03T16:44:34Z'
+        user_mtime:
+          type: string
+          format: date-time
+          example: '2025-04-03T16:44:34Z'
+        jsonmodel_type:
+          type: string
+        uri:
+          type: string
+          format: uri
+          example: '/plugins/temp_headers'
+      type: object
+    Updated:
+      properties:
+        status:
+          type: string
+          example: Updated
+        id:
+          type: integer
+          example: 1
+        lock_version:
+          type: integer
+          format: int64
+          example: 0
+        stale:
+          type: [boolean, "null"]
+        uri:
+          type: string
+          format: uri
+          example: '/plugins/temp_headers/1'
+        warnings:
+          type: array
+  securitySchemes:
+    auth:
+      type: apiKey
+      in: header
+      name: X-ArchivesSpace-Session
+      x-apikeyInfoFunc: app.auth
